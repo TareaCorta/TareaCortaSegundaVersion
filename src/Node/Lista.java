@@ -112,4 +112,15 @@ public class Lista <T>{
     public Node getHead(){
         return _head;
     }
+    public void imprimir(){
+        Node tmp=_head;
+        while(tmp != null){
+            System.out.println(tmp.get_data());
+            tmp= tmp.getNext();
+        }
+    }
+    public void setHead(Node head){
+        _head= head;
+    
+    }
 }
