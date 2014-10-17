@@ -10,12 +10,22 @@ import Node.*;
 /**
  *
  * @author ellioth
+ * Burbuja=1
+ * insert=2
+ * selection=3
+ * quick=4
+ * merge=5
+ * radix=6
+ * estos van a ser los numeros que tiene que tienen que ingresar
+ * cuando se llama a la clase facade.
+ * esta clase sirve para que despligue la cantidad en nanosegundos
+ * que se demoro en hacer el ordenamiento.
  */
 public class contador {
     private long contI=0;
     private long contF;
-    private double total;
-    public double contadorAString (String[] array, int num1, int num2, int clase){
+    private float total;
+    public float contadorAString (String[] array, int num1, int num2, int clase){
         /**Burbuja=1
          * insert=2
          * selection=3
@@ -51,7 +61,7 @@ public class contador {
         return total;
     }
     
-    public double contadorAInt( int[] array, int num1, int num2, int clase){
+    public float contadorAInt( int[] array, int num1, int num2, int clase){
         /**Burbuja=1
          * insert=2
          * selection=3
@@ -87,7 +97,7 @@ public class contador {
         return total;
     }
     
-    public double contadorLInt( Lista list , int clase) throws IOException{
+    public float contadorLInt( Lista list , int clase) throws IOException{
         /**Burbuja=1
          * insert=2
          * selection=3
@@ -123,13 +133,16 @@ public class contador {
         return total;
     }
     
-    public double contadorLString( Lista list, int clase) throws IOException{
+    public float contadorLString( Lista list, int clase) throws IOException{
         /**Burbuja=1
          * insert=2
          * selection=3
          * quick=4
          * merge=5
          * radix=6
+         * estos van a ser los numeros que tiene que tienen que ingresar
+         * cuando se llama a la clase facade.
+         * 
          */
         if(clase==1){
             contI=System.nanoTime();
