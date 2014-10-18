@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * @author ellioth
  */
-public class generador {
+public class generador <T>{
    private Random rnd = new Random();
    private String[] a= {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
    public Lista generadorListString(int cantMax) throws IOException{
@@ -33,17 +33,17 @@ public class generador {
        }
        return list;
    }
-   public String[] generadorArrString(int cantMax){
-       String [] arreglo= new String[cantMax];
+   public T[] generadorArrString(int cantMax){
+       T [] arreglo= (T[]) new Object[cantMax];
        for (int i=0; i<cantMax; i++){
-           arreglo[i]=randomString(5,a);
+           arreglo[i]=(T)randomString(5,a);
        }
        return arreglo;
    }
-   public int[] generadorArrInt(int cantMax){
-       int [] arreglo = new int[cantMax];
+   public T[] generadorArrInt(int cantMax){
+       T [] arreglo =(T[]) new Object[cantMax];
        for(int i=0; i<cantMax; i++){
-           arreglo[i]= rnd.nextInt(100000);
+           arreglo[i]= (T)((Integer)rnd.nextInt(100000));
        }
        return arreglo;
    }
@@ -55,14 +55,4 @@ public class generador {
        return palabra;
    }
    
-   public static void main(String [] agrs) throws IOException{
-       generador nuevo = new generador();
-       String [] arreglo = nuevo.generadorArrString(10000);
-       contador cont = new contador ();
-       double temp= cont.contadorAString(arreglo, 0, arreglo.length-1, 4);
-       //orde.QuickSortString(arreglo, 0, arreglo.length-1);
-       //for (int i=0; i<arreglo.length; i++){
-       //    System.out.println(arreglo[i]);
-       //}
-   }
 }

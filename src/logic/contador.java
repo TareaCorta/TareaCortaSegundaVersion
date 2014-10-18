@@ -21,11 +21,12 @@ import Node.*;
  * esta clase sirve para que despligue la cantidad en nanosegundos
  * que se demoro en hacer el ordenamiento.
  */
-public class contador {
+public class contador <T> {
     private long contI=0;
     private long contF;
     private float total;
-    public float contadorAString (String[] array, int num1, int num2, int clase){
+  
+    public float contadorA( T[] array, int num1, int num2, int clase){
         /**Burbuja=1
          * insert=2
          * selection=3
@@ -34,143 +35,72 @@ public class contador {
          * radix=6
          */
         if (clase==1){
-            
+            bubbleSortA burbuja = new bubbleSortA();
+            contI=System.currentTimeMillis();
+            burbuja.Bsort(array, array.length);
         }
-        if(clase==2){
-            
+        //else if(clase==2){
+        //    contI=System.currentTimeMillis();
+        //}
+        else if(clase==3){
+            selectionSortA select= new selectionSortA();
+            contI=System.currentTimeMillis();
+            select.selectionSortA(array, array.length);
         }
-        if(clase==3){
-            
-        }
-        if (clase==4){
+        else if (clase==4){
             quickSortA quick = new quickSortA();
-            contI= System.nanoTime();
-            quick.QuickSortString(array, num1, num2);
+            contI= System.currentTimeMillis();
+            quick.QuickSort(array, num1, num2);
         }
-        if (clase==5){
+        else if (clase==5){
             MergeSortA merge = new MergeSortA();
-            contI= System.nanoTime();
-            merge.mergeSortString(array, num1, num2);
+            contI= System.currentTimeMillis();
+            merge.mergeSort(array);
         }
-        if (clase==6){
-            
-        }
-        contF= System.nanoTime();
-        total= contF-contI;
-        System.out.print(total);
+        /*else if (clase==6){
+            contI=System.currentTimeMillis();
+        }*/
+        contF= System.currentTimeMillis();
+        total= Math.abs(contF-contI);
         return total;
     }
     
-    public float contadorAInt( int[] array, int num1, int num2, int clase){
+     public float contadorLis( Lista list , int clase) throws IOException{
         /**Burbuja=1
          * insert=2
          * selection=3
          * quick=4
          * merge=5
          * radix=6
-         */
-        if (clase==1){
-            contI=System.nanoTime();
-        }
-        if(clase==2){
-            contI=System.nanoTime();
-        }
-        if(clase==3){
-            contI=System.nanoTime();
-        }
-        if (clase==4){
-            quickSortA quick = new quickSortA();
-            contI= System.nanoTime();
-            quick.QuickSortInt(array, num1, num2);
-        }
-        if (clase==5){
-            MergeSortA merge = new MergeSortA();
-            contI= System.nanoTime();
-            merge.mergeSortInt(array, num1, num2);
-        }
-        if (clase==6){
-            contI=System.nanoTime();
-        }
-        contF= System.nanoTime();
-        total= contF-contI;
-        System.out.print(total);
-        return total;
-    }
-    
-    public float contadorLInt( Lista list , int clase) throws IOException{
-        /**Burbuja=1
-         * insert=2
-         * selection=3
-         * quick=4
-         * merge=5
-         * radix=6
-         */
-        if(clase==1){
-            contI=System.nanoTime();
-        }
+         *
+        *if(clase==1){
+            contI=System.currentTimeMillis();
+        }*/
         if(clase==2){
             insertSortL ISL= new insertSortL();
-            contI=System.nanoTime();
-            ISL.InsertSortInt(list);
+            contI=System.currentTimeMillis();
+            ISL.InsertSort(list);
         }
-        if (clase==3){
+        else if (clase==3){
             selectionsortL SSL = new selectionsortL();
-            contI= System.nanoTime();
-            SSL.SelectionSortInt(list);
+            contI= System.currentTimeMillis();
+            SSL.SelectionSort(list);
         }
-        if (clase==4){
-            contI=System.nanoTime();
+        //else if (clase==4){
+        //    contI=System.currentTimeMillis();
+        //}
+        else if (clase==5){
+            mergeSortL merge = new mergeSortL();
+            selectionsortL sel= new selectionsortL();
+            contI=System.currentTimeMillis();
+            merge.MergeSort(list, 0, sel.cuentaLista(list));
         }
-        if (clase==5){
-            contI=System.nanoTime();
-        }
-        if (clase==6){
-            contI=System.nanoTime();
-        }
-        contF= System.nanoTime();
-        total= contF-contI;
-        System.out.print(total);
+        //else if (clase==6){
+        //    contI=System.currentTimeMillis();
+        //}
+        contF= System.currentTimeMillis();
+        total=  Math.abs(contF-contI);
         return total;
     }
     
-    public float contadorLString( Lista list, int clase) throws IOException{
-        /**Burbuja=1
-         * insert=2
-         * selection=3
-         * quick=4
-         * merge=5
-         * radix=6
-         * estos van a ser los numeros que tiene que tienen que ingresar
-         * cuando se llama a la clase facade.
-         * 
-         */
-        if(clase==1){
-            contI=System.nanoTime();
-        }
-        if(clase==2){
-            insertSortL ISL= new insertSortL();
-            contI=System.nanoTime();
-            ISL.InsertSortInt(list);
-        }
-        if (clase==3){
-            selectionsortL SSL = new selectionsortL();
-            contI= System.nanoTime();
-            SSL.SelectionSortInt(list);
-        }
-        if (clase==4){
-            contI=System.nanoTime();
-        }
-        if (clase==5){
-            contI=System.nanoTime();
-        }
-        if (clase==6){
-            contI=System.nanoTime();
-        }
-        contF= System.nanoTime();
-        total= contF-contI;
-        System.out.print(total);
-        return total;
-        
-    }
-
 }

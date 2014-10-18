@@ -42,31 +42,5 @@ public class selectionSortA <T>{
         arreglo[segundo]=tmp2;
         arreglo[primer]=tmp;
         return arreglo;
-    }
-    public void llamar(){
-        T[]años = (T[]) new Object[4];
-        años[0]= (T)(Integer)100;
-        años[1]=(T)(Integer)50;
-        años[2]=(T)(Integer)101;
-        años[3]=(T)(Integer)(10);
- 
-        selectionSortA bs = new selectionSortA();
-        imprimir(años, años.length);
-        bs.selectionSortA(años,4);
-        imprimir(años,años.length);
-    }
-    public void imprimir(T[] arreglo,int lenght){
-        System.out.println("imprimiendo");
-        for(int i=0;i<=lenght-1;i++){
-            System.out.println(arreglo[i]);
-        }
-        System.out.println("fin___________________- ");
-    }
-    public static void main(String[] args) {
-        selectionSortA bs = new selectionSortA();
-        bs.llamar();
-        
-        
-    }
-    
+    }    
 }

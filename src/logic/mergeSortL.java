@@ -49,7 +49,6 @@ public class mergeSortL <T>{
             MergeSort(lista, med, end);
             
             lista= merge(lista,init,med-1,med,end);
-            System.out.println("llamo");
         }
         return lista;
     }
@@ -170,37 +169,6 @@ public class mergeSortL <T>{
             tmpb.getPrev().setNext(tmpb);
             
         }
-    }
-    public void llamar(){
-        Lista lista = new Lista();
-        lista.insertHead(12);
-        lista.insertHead(23);
-        lista.insertHead(8);
-        lista.insertHead(9);
-        lista.insertHead(2);
-        lista.insertHead(21);
-        lista.insertHead(20);
-        
-        lista.imprimir();
-        mergeSortL bs = new mergeSortL();
-        
-        lista= bs.MergeSort(lista,0,7);
-        //lista= bs.MergeSort(lista,0,7);
-        System.out.println("hora de la verdad");
-        lista.imprimir();
-        /*Node a = lista.getHead();
-        Node b = lista.getHead().getNext();
-        Node c = lista.getHead().getNext().getNext();
-        Node d = lista.getHead().getNext().getNext().getNext();
-        Node e = lista.getHead().getNext().getNext().getNext().getNext();
-        Node f = lista.getHead().getNext().getNext().getNext().getNext().getNext();
-        Node g = lista.getHead().getNext().getNext().getNext().getNext().getNext().getNext();*/
-    }
-    public static void main(String[] args) {
-        mergeSortL bs = new mergeSortL();
-        bs.llamar();
-        
-        
     }
     
 }

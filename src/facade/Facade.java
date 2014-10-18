@@ -13,26 +13,17 @@ import java.io.IOException;
  *
  * @author ellioth
  */
-public class Facade {
+public class Facade <T> {
     private final contador cont= new contador();
     float temp;
-    public float comLString(Lista list, int NumOrdenamiento) throws IOException{
-        temp=cont.contadorLString(list, NumOrdenamiento);
+    
+    public float comLis(Lista list, int NumOrdenamiento) throws IOException{
+        temp=cont.contadorLis(list, NumOrdenamiento);
         return temp;
     }
     
-    public float comLInt(Lista list, int NumOrdenamiento) throws IOException{
-        temp=cont.contadorLInt(list, NumOrdenamiento);
-        return temp;
-    }
-    
-    public float comAString( String [] arreglo, int inicial, int fin, int NumOrdenamiento){
-        temp=cont.contadorAString(arreglo, inicial, fin, NumOrdenamiento);
-        return temp;
-    }
-    
-    public float comAInt( int[] arreglo, int inicial, int fin, int NumOrdenamiento){
-        temp=cont.contadorAInt(arreglo, inicial, fin, NumOrdenamiento);
+    public float comA( T[] arreglo, int inicial, int fin, int NumOrdenamiento){
+        temp=cont.contadorA(arreglo, inicial, fin, NumOrdenamiento);
         return temp;
     }
 }

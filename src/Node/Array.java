@@ -28,9 +28,4 @@ public class Array <T>{
         }
     
     }
-    public static void main(String[] args) {
-        Array arreglo = new Array();
-        arreglo.llenar();
-        arreglo.imprimir(); 
-    }
 }
