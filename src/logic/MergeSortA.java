@@ -87,11 +87,4 @@ public class MergeSortA <T>{
             a[ rightEnd ] = tmpArray[ rightEnd ];
         }
     }
-    
-    public static void main(String [] agrs){
-        MergeSortA nuevo = new MergeSortA();
-        generador rand= new generador();
-        nuevo.mergeSort(rand.generadorArrInt(10));
-    }
-    
 }

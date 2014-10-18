@@ -355,9 +355,6 @@ public class pantalla1 extends JFrame{
         PanelGrafico.removeAll();
         PanelGrafico.add(barras, BorderLayout.CENTER);
         PanelGrafico.validate();
-        
-        
-    
     }//GEN-LAST:event_CalcStrinActionPerformed
 
     private void CalcIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcIntActionPerformed
