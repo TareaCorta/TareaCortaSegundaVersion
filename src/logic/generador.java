@@ -53,5 +53,17 @@ public class generador <T>{
            palabra+=arreglo[rnd.nextInt(arreglo.length)];
        }
        return palabra;
-   }   
+   }
+   public T[] ArrIntPeorCasoOrd(int cantMax){
+       T [] arreglo =(T[]) new Object[cantMax];
+       for(int i=0; i<cantMax; i++)
+           arreglo[i]= (T)((Integer)i);
+       return arreglo;
+   }
+   public Lista ListIntPeorCasoOrd(int cantMax)throws IOException{
+       Lista list = new Lista();
+       for(int i=0; i<cantMax; i++)
+           list.insertHead(i);
+       return list;
+   }
 }
