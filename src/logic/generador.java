@@ -43,7 +43,7 @@ public class generador <T>{
    public T[] generadorArrInt(int cantMax){
        T [] arreglo =(T[]) new Object[cantMax];
        for(int i=0; i<cantMax; i++){
-           arreglo[i]= (T)((Integer)rnd.nextInt(100000));
+           arreglo[i]= (T)((Integer)rnd.nextInt(cantMax));
        }
        return arreglo;
    }
@@ -53,6 +53,5 @@ public class generador <T>{
            palabra+=arreglo[rnd.nextInt(arreglo.length)];
        }
        return palabra;
-   }
-   
+   }   
 }

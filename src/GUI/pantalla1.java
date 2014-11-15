@@ -34,11 +34,17 @@ public class pantalla1 extends JFrame{
     private Lista list;
     private DefaultCategoryDataset cuadro;
     private generador rand;
+    private Facade facade;
     public pantalla1() throws IOException {
         rand= new generador();
         list= new Lista();
         graf= new PanelDeGrafica();
+        facade = new Facade();
         initComponents();
+        //buttonGroup1.add(jRadioButton2);
+        //buttonGroup1.add(jRadioButton3);
+        //buttonGroup1.add(jRadioButton4);
+        
         
     }
 
@@ -50,10 +56,6 @@ public class pantalla1 extends JFrame{
      * @return 
      */
     @SuppressWarnings("unchecked")
-   
-    
-    
-    
     /*public Lista getLista(){
         return list;
     }*/
@@ -94,6 +96,10 @@ public class pantalla1 extends JFrame{
         MemoMet = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         CantRecur = new javax.swing.JTextField();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(53, 212, 192));
@@ -206,7 +212,6 @@ public class pantalla1 extends JFrame{
             }
         });
 
-        CantMax.setText("1000");
         CantMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CantMaxActionPerformed(evt);
@@ -226,12 +231,18 @@ public class pantalla1 extends JFrame{
         jLabel3.setFont(new java.awt.Font("Kokonor", 0, 14)); // NOI18N
         jLabel3.setText("Cantidad de recursiones");
 
-        CantRecur.setText("30");
         CantRecur.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CantRecurActionPerformed(evt);
             }
         });
+
+        jRadioButton2.setText("Burbuja");
+
+        jRadioButton3.setText("Quick");
+
+        jRadioButton4.setText("Marge");
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -239,7 +250,7 @@ public class pantalla1 extends JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -283,45 +294,58 @@ public class pantalla1 extends JFrame{
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(MemoMet)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(CalcInt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(CalcStrin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(CalcInt, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(CalcStrin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 138, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jRadioButton2)
+                                    .addComponent(jRadioButton4)
+                                    .addComponent(jRadioButton3)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(MemoMet)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(PanelGrafico, javax.swing.GroupLayout.PREFERRED_SIZE, 813, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InseA)
-                    .addComponent(quiA)
-                    .addComponent(merA)
-                    .addComponent(burbA)
-                    .addComponent(CalcStrin))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(radA)
-                    .addComponent(selcA)
-                    .addComponent(burbL)
-                    .addComponent(merL)
-                    .addComponent(CalcInt))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(insL)
-                    .addComponent(quiL)
-                    .addComponent(radL)
-                    .addComponent(selL))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(InseA)
+                            .addComponent(quiA)
+                            .addComponent(merA)
+                            .addComponent(burbA)
+                            .addComponent(CalcStrin))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(radA)
+                            .addComponent(selcA)
+                            .addComponent(burbL)
+                            .addComponent(merL)
+                            .addComponent(CalcInt))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(insL)
+                            .addComponent(quiL)
+                            .addComponent(radL)
+                            .addComponent(selL)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jRadioButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton3)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(MemoMet)
-                        .addGap(46, 46, 46))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -329,8 +353,12 @@ public class pantalla1 extends JFrame{
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(CantRecur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(PanelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 367, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                        .addComponent(MemoMet)
+                        .addGap(46, 46, 46)))
+                .addComponent(PanelGrafico, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -339,15 +367,16 @@ public class pantalla1 extends JFrame{
     }// </editor-fold>//GEN-END:initComponents
 
     private void CalcStrinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcStrinActionPerformed
-        // TODO add your handling code here:
         cuadro= new DefaultCategoryDataset();
         try {
             graf.ListaDeMetodos(list);
-            graf.metodosOrdA(cuadro, rand.generadorArrString(getCantidadDat())); 
-            graf.metodosOrdL(cuadro, rand.generadorListString(getCantidadDat()));
+            graf.metodosOrdA(cuadro, rand.generadorArrString(Integer.parseInt(CantMax.getText())),Integer.parseInt(CantRecur.getText())); 
+            //graf.metodosOrdL(cuadro, rand.generadorListString(Integer.parseInt(CantRecur.getText())),Integer.parseInt(CantRecur.getText()));
         } catch (IOException ex) {
             Logger.getLogger(pantalla1.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("error en ordenamiento con listas y arreglos de Strings");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(pantalla1.class.getName()).log(Level.SEVERE, null, ex);
         }
         JFreeChart grafica= ChartFactory.createBarChart("Metodos de ordenamiento con Strings", "promedio", "Tiempo de duracion", cuadro, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot  grfic= grafica.getCategoryPlot();
@@ -358,15 +387,17 @@ public class pantalla1 extends JFrame{
     }//GEN-LAST:event_CalcStrinActionPerformed
 
     private void CalcIntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CalcIntActionPerformed
-        // TODO add your handling code here:
         cuadro= new DefaultCategoryDataset();
         try {
+            list.imprimir();
             graf.ListaDeMetodos(list);
-            graf.metodosOrdA(cuadro, rand.generadorArrInt(getCantidadDat()));
-            graf.metodosOrdL(cuadro, rand.generadorListInt(getCantidadDat()));
+            graf.metodosOrdA(cuadro, rand.generadorArrInt(Integer.parseInt(CantMax.getText())),Integer.parseInt(CantRecur.getText()));
+            //graf.metodosOrdL(cuadro, rand.generadorListInt(Integer.parseInt(CantRecur.getText())),Integer.parseInt(CantRecur.getText()));
         } catch (IOException ex) {
             Logger.getLogger(pantalla1.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("error en ordenamiento con listas y arreglos de ints");
+        } catch (InterruptedException ex) {
+            Logger.getLogger(pantalla1.class.getName()).log(Level.SEVERE, null, ex);
         }
         JFreeChart grafica= ChartFactory.createBarChart("Metodos de ordenamiento con Ints", "promedio", "Tiempo de duracion", cuadro, PlotOrientation.VERTICAL, true, true, false);
         CategoryPlot  grfic= grafica.getCategoryPlot();
@@ -374,11 +405,9 @@ public class pantalla1 extends JFrame{
         PanelGrafico.removeAll();
         PanelGrafico.add(barras, BorderLayout.CENTER);
         PanelGrafico.validate();
-        
     }//GEN-LAST:event_CalcIntActionPerformed
 
     private void burbAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_burbAActionPerformed
-        // TODO add your handling code here:
         list.insertHead("burbuja-array");
     }//GEN-LAST:event_burbAActionPerformed
 
@@ -388,7 +417,6 @@ public class pantalla1 extends JFrame{
     }//GEN-LAST:event_merAActionPerformed
 
     private void quiAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quiAActionPerformed
-        // TODO add your handling code here:
         list.insertHead("quick-array");
     }//GEN-LAST:event_quiAActionPerformed
 
@@ -449,7 +477,10 @@ public class pantalla1 extends JFrame{
 
     private void MemoMetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MemoMetActionPerformed
         // TODO add your handling code here:
-        list=new Lista();
+        list = new Lista();
+        cuadro.clear();
+        graf.salir();
+        
     }//GEN-LAST:event_MemoMetActionPerformed
 
     /**
@@ -506,7 +537,11 @@ public class pantalla1 extends JFrame{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JButton merA;
     private javax.swing.JButton merL;
     private javax.swing.JButton quiA;

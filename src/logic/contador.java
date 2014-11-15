@@ -26,7 +26,7 @@ public class contador <T> {
     private long contF;
     private float total;
   
-    public float contadorA( T[] array, int num1, int num2, int clase){
+    public float contadorA( T[] array, int num1, int num2, int clase) throws InterruptedException{
         /**Burbuja=1
          * insert=2
          * selection=3
@@ -38,6 +38,7 @@ public class contador <T> {
             bubbleSortA burbuja = new bubbleSortA();
             contI=System.currentTimeMillis();
             burbuja.Bsort(array, array.length);
+            contF= System.currentTimeMillis();
         }
         //else if(clase==2){
         //    contI=System.currentTimeMillis();
@@ -46,22 +47,24 @@ public class contador <T> {
             selectionSortA select= new selectionSortA();
             contI=System.currentTimeMillis();
             select.selectionSortA(array, array.length);
+            contF= System.currentTimeMillis();
         }
         else if (clase==4){
             quickSortA quick = new quickSortA();
             contI= System.currentTimeMillis();
             quick.QuickSort(array, num1, num2);
+            contF= System.currentTimeMillis();
         }
         else if (clase==5){
             MergeSortA merge = new MergeSortA();
             contI= System.currentTimeMillis();
             merge.mergeSort(array);
+            contF= System.currentTimeMillis();
         }
         /*else if (clase==6){
             contI=System.currentTimeMillis();
         }*/
-        contF= System.currentTimeMillis();
-        total= Math.abs(contF-contI);
+        total= contF-contI;
         return total;
     }
     

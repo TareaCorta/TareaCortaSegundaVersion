@@ -18,9 +18,8 @@ public class Array <T>{
     public Array(){
         array = new ArrayList();
     }
-    public void llenar(){
-        array.add((T) "Hola");
-        array.add((T) (Integer) 23);
+    public void llenar(T pData){
+        array.add((T) pData);
     }
     public void imprimir(){
         for (int i=0;i<array.size(); i++){

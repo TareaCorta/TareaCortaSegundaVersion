@@ -22,7 +22,7 @@ public class Facade <T> {
         return temp;
     }
     
-    public float comA( T[] arreglo, int inicial, int fin, int NumOrdenamiento){
+    public float comA( T[] arreglo, int inicial, int fin, int NumOrdenamiento) throws InterruptedException{
         temp=cont.contadorA(arreglo, inicial, fin, NumOrdenamiento);
         return temp;
     }

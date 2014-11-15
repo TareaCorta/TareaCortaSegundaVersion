@@ -26,13 +26,11 @@ public class bubbleSortA<T>{
                         arreglo[i]=arreglo[i+1];
                         arreglo[i+1]=tmp;
                     }
-                    
                 }
                 tam_counter--;
             } 
             catch (Exception e) {
                 for(int i=0; i<tam_counter-1;i++){
-                    System.out.println((String)arreglo[i+1]);
                     int valor = ((String)arreglo[i]).compareTo((String)arreglo[i+1]);
                     if( valor > 0){
                         flag=true;

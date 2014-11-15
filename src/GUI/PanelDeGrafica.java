@@ -45,7 +45,7 @@ public class PanelDeGrafica <T> {
     private pantalla1 Panprin;
     private int cantMax;
     private int recur;
-    
+    private T [] respaldo; 
     public void ListaDeMetodos(Lista list){
         Node temp= list.getHead();
         int i=0;
@@ -81,50 +81,84 @@ public class PanelDeGrafica <T> {
             i++;
         }
     }
-    
-    public void metodosOrdA(DefaultCategoryDataset cuadro, T[] arreglo ) throws IOException{
-        Facade fac= new Facade();
-        Panprin= new pantalla1();
-        recur= Panprin.getCantRecur();
-        if (burbuja.equals("BurbujaA")){
-            for (int i= 0; i< recur; i++)
-                BBA+= fac.comA(arreglo, 0, cantMax, Metbur);
-            this.BBA=(BBA/recur);
-            cuadro.addValue(this.BBA, burbuja, "segundos");
+    public T[] asignarArray(T[] arreglo){
+        T[] nuevo;
+        nuevo = (T[]) new Object[arreglo.length];
+        for(int i=0; i<arreglo.length;i++){
+            nuevo[i] = arreglo[i];
         }
-        else if (insertar.equals("InsertA")){
-            for (int i= 0; i< recur; i++)
-                INA+= fac.comA(arreglo, 0, cantMax, Metin);
-            this.INA= (INA/recur);
+        return nuevo;
+    } 
+    
+    public void metodosOrdA(DefaultCategoryDataset cuadro, T[] arreglo, int cantidadR ) throws IOException, InterruptedException{
+        inicializar();
+        Facade fac= new Facade();
+        float cont;
+        Panprin= new pantalla1();
+        respaldo=asignarArray(arreglo);
+        if (burbuja.equals("BurbujaA")){
+            for (int i= 0; i< cantidadR; i++){
+                cont=fac.comA(arreglo, 0, cantMax, Metbur);
+                BBA+= cont;
+                cuadro.addValue(cont,"Med."+Integer.toString(i+1),"Segundos");
+                arreglo = asignarArray(respaldo);
+            }
+            this.BBA=(BBA/cantidadR);
+            cuadro.addValue(BBA,"Promedio"+burbuja,burbuja);
+        }
+        if (insertar.equals("InsertA")){
+            for (int i= 0; i< cantidadR; i++){
+                cont = fac.comA(arreglo, 0, cantMax, Metin);
+                INA+= cont;
+                cuadro.addValue(cont,"Med."+Integer.toString(i),"Segundos");
+                arreglo = asignarArray(respaldo);
+            }
+            this.INA= (INA/cantidadR);
             cuadro.addValue(this.INA, insertar, "segundos");
         }
-        else if (merge.equals("MergeA")){
-            for (int i= 0; i< recur; i++)
-                MGA+= fac.comA(arreglo, 0, cantMax, Metmer);
-            this.MGA= (MGA/recur);
+        if (merge.equals("MergeA")){
+            for (int i= 0; i< cantidadR; i++){
+                cont = fac.comA(arreglo, 0, cantMax, Metmer);
+                MGA+= cont;
+                cuadro.addValue(cont,"Med."+Integer.toString(i),"Segurndos");
+                arreglo = asignarArray(respaldo);
+            }    
+            this.MGA= (MGA/cantidadR);
             cuadro.addValue(this.MGA, merge, "segundos");
         }
-        else if (raddix.equals("RaddixA")){
-            for (int i= 0; i< recur; i++)
-                RDA+= fac.comA(arreglo, 0, cantMax, Metrad);
-            this.RDA= (RDA/recur);
+        if (raddix.equals("RaddixA")){
+            for (int i= 0; i< cantidadR; i++){
+                cont = fac.comA(arreglo, 0, cantMax, Metrad);
+                RDA+= cont;
+                cuadro.addValue(cont,"Med."+Integer.toString(i),"Segurndos");
+                arreglo = asignarArray(respaldo);
+            }
+            this.RDA= (RDA/cantidadR);
             cuadro.addValue(this.RDA, raddix, "segundos");
         }
-        else if (rapida.equals("QuickA")){
-            for (int i= 0; i< recur; i++)
-                QKA+= fac.comA(arreglo, 0, cantMax, Metrap);
-            this.QKA= (QKA/recur);
+        if (rapida.equals("QuickA")){
+            for (int i= 0; i< cantidadR; i++){
+                cont = fac.comA(arreglo, 0, cantMax, Metrap);
+                QKA+= cont;
+                cuadro.addValue(cont,"Med."+Integer.toString(i),"Segurndos");
+                arreglo = asignarArray(respaldo);
+            }
+            this.QKA= (QKA/cantidadR);
             cuadro.addValue(this.QKA, rapida, "segundos");
         }
-        else if (seleccion.equals("SelectionA")){
-            for (int i= 0; i< recur; i++)
-                SLA= fac.comA(arreglo, 0, cantMax, Metsel);
-            this.SLA= (SLA/recur);
+        if (seleccion.equals("SelectionA")){
+            for (int i= 0; i< cantidadR; i++){
+                cont = fac.comA(arreglo, 0, cantMax, Metsel);
+                SLA += cont;
+                cuadro.addValue(cont,"Med."+Integer.toString(i),"Segurndos");
+                arreglo = asignarArray(respaldo);
+            }
+            this.SLA= (SLA/cantidadR);
             cuadro.addValue(this.SLA, seleccion,"segundos");
         }
     }
     
-    public void metodosOrdL(DefaultCategoryDataset cuadro, Lista list ) throws IOException{
+    public void metodosOrdL(DefaultCategoryDataset cuadro, Lista list,int cantR ) throws IOException{
         Facade fac= new Facade();
         Panprin= new pantalla1();
         recur= Panprin.getCantRecur();
@@ -164,5 +198,29 @@ public class PanelDeGrafica <T> {
             this.SLL=(SLL/recur);
             cuadro.addValue(this.SLL, seleccion, "segundos");
         }
+    }
+    public void salir(){
+        burbuja="";
+        insertar="";
+        seleccion="";
+        rapida="";
+        merge="";
+        raddix="";
+        
+    }
+    public void inicializar(){
+        BBL=0;
+        BBA=0;
+        INL=0;
+        INA=0;
+        SLL=0;
+        SLA=0;
+        QKL=0;
+        QKA=0;
+        MGL=0;
+        MGA=0;
+        RDL=0;
+        RDA=0;
+    
     }
 }
