@@ -18,8 +18,8 @@ public class Array <T>{
     public Array(){
         array = new ArrayList();
     }
-    public void llenar(T pData){
-        array.add((T) pData);
+    public void llenar(T data){
+        array.add((T) data);
     }
     public void imprimir(){
         for (int i=0;i<array.size(); i++){

@@ -123,4 +123,13 @@ public class Lista <T>{
         _head= head;
     
     }
+    public int length(){
+       int cont =0;
+       Node tmp = _head;
+       while(tmp!= null){
+           cont++;
+           tmp = tmp.getNext();
+       }
+       return cont;
+   }
 }
