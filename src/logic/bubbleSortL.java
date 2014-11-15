@@ -115,7 +115,6 @@ public class bubbleSortL {
             else
                 tmp=tmp.getNext();
         }
-        imprimir(lista);
         return lista;        
     }
     private Lista ordenarStr(Lista lista){
@@ -178,17 +177,7 @@ public class bubbleSortL {
             }
             else
                 tmp=tmp.getNext();
-        }
-        imprimir(lista);
+        };
         return lista;        
     }
-    public void imprimir(Lista lista){
-        Node tmp= lista.getHead();
-        while(tmp!=null){
-            System.out.println(tmp.get_data());
-            tmp=tmp.getNext();
-        }
-        
-    }
-} 
-
+}
